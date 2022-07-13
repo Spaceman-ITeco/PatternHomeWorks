@@ -5,10 +5,10 @@ public class SMSNotifier implements Notifier{
     private String text;
 
     public String getText() {
-        if(text.length()<=150)
+        if(text.length()<=160)
             return text;
         else
-        return text.substring(0,149);
+        return text.substring(0,159);
     }
 
     public SMSNotifier(MessengerNotifier notifier) {
@@ -21,8 +21,10 @@ public class SMSNotifier implements Notifier{
 
     @Override
     public boolean NotifySubscriber() {
-        if(notifier !=null)
-        return notifier.NotifySubscriber();
-        else return true;
+        boolean result = notifier.NotifySubscriber();
+        if(result)
+        {return true;}
+        String message = notifier.getText();
+        return false;
     }
 }
