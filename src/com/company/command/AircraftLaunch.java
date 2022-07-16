@@ -19,6 +19,8 @@ public class AircraftLaunch {
         CommandPool commandPool = new CommandPool();
         commandPool.addCommand(new RaisingFlaps(5,10));
         commandPool.addCommand(new StartEngine(6,7));
-        commandPool.run();
+        commandPool.start();
+        CommandExecutor executor = new CommandExecutor(new RaisingFlaps(1,10));
+        executor.start();
     }
 }

@@ -24,7 +24,8 @@ public class CommandPool extends Thread{
                 if(commands.size()==0)
                     return;
                 if (usedCommand(command))
-                {commands.remove(commands.toArray().length-1);}
+                {commands.remove(commands.toArray().length-1);
+                CommandExecutor executor=new CommandExecutor(command);}
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

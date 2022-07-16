@@ -1,10 +1,20 @@
 package com.company.command;
 
-public class CommandExecutor {
-    public static void main(String[] args) {
-        CommandPool commandPool = new CommandPool();
-        commandPool.addCommand(new RaisingFlaps(5,10));
-        commandPool.addCommand(new StartEngine(6,7));
-        commandPool.start();
+public class CommandExecutor extends Thread {
+    private AircraftCommand command;
+
+    public CommandExecutor(AircraftCommand command)
+    {this.command=command;}
+
+    public void run() {
+
+        {
+            try {
+                sleep(1000L *command.getSeconds());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
+
 }
